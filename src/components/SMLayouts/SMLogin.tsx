@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { fbAuth, fbLogin } from "../../config/firebase/firebase-methods";
-import { Typography, Box, Paper, Grid } from "@mui/material";
+import { Typography, Box, Paper, Grid, styled, Theme } from "@mui/material";
 import SMInput from "../SMComponents/SMInput";
 import SMButton from "../SMComponents/SMButton";
 import "../../App.css";
 // import {useDispatch} from 'react-redux'
+const Item = styled(Paper)(({ theme }: { theme: Theme }) => ({
+  backgroundColor: '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(2),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
 export default function SMLogin() {
   const [model, setModel] = useState<any>({});
@@ -55,7 +62,8 @@ export default function SMLogin() {
         </Typography>
         <form>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+            <Grid size={{xs:12}}>
+              <Item>
               <SMInput
                 value={model.email}
                 name="email"
@@ -64,8 +72,11 @@ export default function SMLogin() {
                 onChange={(e: any) => fillModel("email", e.target.value)}
                 className="py-2"
               />
+              </Item>
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={{xs:12}}>
+              <Item>
+                
               <SMInput
                 value={model.password}
                 name="password"
@@ -74,14 +85,18 @@ export default function SMLogin() {
                 onChange={(e: any) => fillModel("password", e.target.value)}
                 className="py-2"
               />
+              </Item>
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={{xs:12}}>
+              <Item>
+                
               <SMButton
                 type="button"
                 onClick={LoginUser}
                 label="Login"
                 className="py-2"
               />
+              </Item>
               <Typography className="py-2">
                 Don't have an account?
                 <Link to="/SignUp">SingUp</Link>
