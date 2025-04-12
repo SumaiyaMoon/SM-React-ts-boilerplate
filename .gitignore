@@ -1,3 +1,5 @@
+#config files
+src/config/firebase/firebase-config.ts
 # Logs
 logs
 *.log
