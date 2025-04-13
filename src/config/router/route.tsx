@@ -15,9 +15,9 @@ export default function AppRouter() {
           {/* Public Routes
           <Route path="/" element={<Home />} /> */}
 
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<SMLogin />} />
           <Route path="/signup" element={<SMSignUp />} />
-          <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/profile" element={<Protected Screen={Profile} />} />
           <Route path="/profile/:id" element={<DonorDetail />} />

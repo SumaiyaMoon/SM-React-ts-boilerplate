@@ -8,10 +8,10 @@ export default function Home() {
   return (
     <>
       <div className="bg_img_home d-flex align-items-center justify-content-center">
-        <div className="container row d-flex align-items-center justify-content-center">
-          <div className="col-6 text-center text-white">
+        <div className="container">
+          <div className=" d-flex flex-column text-center text-white">
             <Typography className="py-2" variant="h2">
-              Blood Bank Application
+              REACT TS <br/> BOILER PLATE
             </Typography>
             <div className="d-flex align-items-center justify-content-center gap-2 m-2 ">
               <SMButton

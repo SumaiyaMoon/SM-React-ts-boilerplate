@@ -1,4 +1,4 @@
-import { Box, Typography, Paper, Grid, styled, Theme } from "@mui/material";
+import { Box, Typography, Paper, Grid } from "@mui/material";
 import SMInput from "../SMComponents/SMInput";
 import SMButton from "../SMComponents/SMButton";
 import { useState } from "react";
@@ -7,19 +7,12 @@ import { fbSignUp } from "../../config/firebase/firebase-methods";
 import SMSelect from "../SMComponents/SMSelect";
 import Alert from "@mui/material/Alert";
 
-const Item = styled(Paper)(({ theme }: { theme: Theme }) => ({
-  backgroundColor: '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
 
 
 export default function SMSignUp() {
   const bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
   const [bloodGroup, setBloodGroup] = useState<string>(bloodGroups[0]);
-  const [isSignedUp, setIsSignedUp] = useState(false);
+  // const [isSignedUp, setIsSignedUp] = useState(false);
 
   const handleChange = (newValue: any) => {
     setBloodGroup(newValue);
@@ -89,7 +82,7 @@ export default function SMSignUp() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh",
+        
       }}
     >
       <Paper
@@ -103,7 +96,7 @@ export default function SMSignUp() {
         <form>
           <Grid container spacing={1}>
             <Grid size={{xs:12}}>
-              <Item>
+           
 
               <SMInput
                 value={model.userName}
@@ -113,10 +106,10 @@ export default function SMSignUp() {
                 onChange={(e: any) => fillModel("userName", e.target.value)}
                 className="py-2"
               />
-              </Item>
+              
             </Grid>
             <Grid size={{xs:6}}>
-              <Item>
+              
 
               <SMInput
                 value={model.email}
@@ -126,11 +119,11 @@ export default function SMSignUp() {
                 onChange={(e: any) => fillModel("email", e.target.value)}
                 className="py-2"
               />
-              </Item>
+              
             </Grid>
 
             <Grid size={{xs:6}}>
-              <Item>
+              
 
               <SMInput
                 value={model.password}
@@ -140,11 +133,11 @@ export default function SMSignUp() {
                 onChange={(e: any) => fillModel("password", e.target.value)}
                 className="py-2"
               />
-              </Item>
+              
             </Grid>
 
             <Grid size={{xs:6}}>
-            <Item>
+            
             <SMSelect
                 label="Select Blood Group"
                 value={bloodGroup}
@@ -155,11 +148,11 @@ export default function SMSignUp() {
                 }}
                 className="py-2"
               />
-            </Item>
+            
               
             </Grid>
             <Grid size={{xs:6}}>
-            <Item>
+            
 
               <SMSelect
                 label="Select Gender"
@@ -171,10 +164,10 @@ export default function SMSignUp() {
                 }}
                 className="py-2"
               />
-            </Item>
+            
             </Grid>
             <Grid size={{xs:6}}>
-            <Item>
+            
             <SMInput
                 value={model.contact}
                 name="contact"
@@ -183,11 +176,11 @@ export default function SMSignUp() {
                 onChange={(e: any) => fillModel("contact", e.target.value)}
                 className="py-2"
               />
-            </Item>
+            
               
             </Grid>
             <Grid size={{xs:6}}>
-            <Item>
+            
             <SMInput
                 value={model.disease}
                 name="disease"
@@ -196,11 +189,11 @@ export default function SMSignUp() {
                 onChange={(e: any) => fillModel("disease", e.target.value)}
                 className="py-2"
               />
-            </Item>
+            
               
             </Grid>
             <Grid size={{xs:12}}>
-            <Item>
+            
 
               <SMInput
                 value={model.address}
@@ -210,11 +203,11 @@ export default function SMSignUp() {
                 onChange={(e: any) => fillModel("address", e.target.value)}
                 className="py-2"
               />
-            </Item>
+            
             </Grid>
 
             <Grid size={{xs:12}}>
-            <Item>
+            
             <SMButton
                 type="button"
                 onClick={signUpUser}
@@ -225,7 +218,7 @@ export default function SMSignUp() {
                 Already Registered?
                 <Link to="/login">Log In</Link>
               </Typography>
-            </Item>
+            
               
             </Grid>
           </Grid>
